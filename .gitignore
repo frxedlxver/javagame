@@ -1,0 +1,7 @@
+source_code/.idea/*
+source_code/out/*
+**/META-INF/*
+
+*.class
+*.bak
+*.iml

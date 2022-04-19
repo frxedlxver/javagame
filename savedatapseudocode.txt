@@ -1,0 +1,63 @@
+class SaveData {
+    private static File saveGameNames = new File("saveGameNames.txt")
+    private File saveFile;
+    private src.actor.PlayerChar character;
+
+    public SaveData(src.actor.PlayerChar character) {
+        this.character = character;
+    }
+
+    public static void saveGame(File, src.actor.Character, Game){
+        println("Choose which file to save to: ")
+        String saveGame = chooseSaveFile();
+
+
+
+        save src.actor.Character.name
+        save src.actor.Character.inventory
+        save src.actor.Character.stats
+
+
+        save game data
+    }
+
+    public File loadGame() {
+        this.saveFile = chooseSaveFile();
+
+        FileReader fr = new FileReader(this.saveFile)
+
+        inventory = read file
+        stats = read file
+        gamestate = read file
+
+        new src.actor.Character(name, inventory, stats, gamestate)
+    }
+
+    private static File chooseSaveFile(){
+        Scanner sc = new Scanner(saveGameNames)
+        arrayList<String> saveNamesArray = new ArrayList<>()
+        saveNamesArray.add("0: New File")
+
+        i = 1;
+        while(sc.hasNextLine()) {
+            saveNamesArray.add(String.format(%d: %s", i, sc.nextLine())
+            i++
+        }
+
+        println("Choose which file to load: ")
+        saveNamesArray.foreach(n -> println("\t" + n)
+
+        while {
+            try {
+                get int chosenSave as input
+                String saveName = saveNamesArray.get(chosenSave)
+                break;
+            } catch index error {
+                println("Save file does not exist! Please choose one of the options listed above:")
+            }
+        }
+
+        return new File(saveName + ".txt")
+
+    }
+}
