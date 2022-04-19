@@ -4,7 +4,7 @@
   
 ./compiled contains executable jar file.    
   
-To play game, open command prompt in ./source, and type java -jar javagame.jar    
+To play game: open command prompt in ./compiled and type java -jar javagame.jar    
   
 ---  
   
