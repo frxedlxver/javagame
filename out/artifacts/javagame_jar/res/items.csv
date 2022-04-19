@@ -1,0 +1,12 @@
+HEAD ArmorID(0),Name(1),Defense(2),Weight (3)
+A1,Moldy Rags,3,0.8				
+							
+HEAD WeaponID(0),WeaponType(1),Name(2),Damage(3),Block(4),DamageType(5),Weight(6),ammoCost(7)
+W1,Hammer,Mace,12,0.3,Blunt,5.6,0
+W2,Dagger,Rusted Dagger,6,0.1,Pierce,1.1,0
+W3,Gun,Hunting Rifle,20,0,Shoot,3.2,5
+W4,Shield,Leather Buckler,0,0.9,Shield,2.1,0
+							
+HEAD ConsumableID(0),Name(1),Effect(2),Amount(3)
+C1,Medicine,heal,10
+C2,Ammobag,ammo,2
