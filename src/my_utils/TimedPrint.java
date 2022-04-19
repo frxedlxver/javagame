@@ -26,6 +26,9 @@ public class TimedPrint {
                         System.out.print(c);
                         Thread.sleep(tComma);
                     }
+                    case '_' -> {
+                        Thread.sleep(tPeriod);
+                    }
                     default -> {
                         System.out.print(c);
                         Thread.sleep(t);
