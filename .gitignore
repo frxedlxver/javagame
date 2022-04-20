@@ -9,8 +9,6 @@
 
 # repo-specific
 source_code/out/
-/releases
-compiled/
 
 # java-specific
 *.class
