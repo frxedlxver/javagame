@@ -10,11 +10,11 @@ import java.util.Scanner;
 
 public class GameController {
 
-    private static HashMap<String, Integer> VALId_COMMANDS;
+    private static HashMap<String, Integer> VALID_COMMANDS;
 
     static {
         try {
-            VALId_COMMANDS = loadValidCommands();
+            VALID_COMMANDS = loadValidCommands();
         } catch (FileNotFoundException e) {
             System.out.println("Error: commands.csv not found in data folder.");
         }
@@ -55,7 +55,7 @@ public class GameController {
 
     private static int translateCommand(String command) {
         try {
-            return VALId_COMMANDS.get(command.toLowerCase());
+            return VALID_COMMANDS.get(command.toLowerCase());
         } catch (NullPointerException e) {
             // 0 will be used to identify unknown commands
             return 0;
