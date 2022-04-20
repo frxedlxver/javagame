@@ -1,4 +1,0 @@
-RoomId(0),Items(1),Actors(2),NorthExit(3),EastExit(4),SouthExit(5),WestExit(6),Description(7)
-R1,W2 A1 C1 C1,none,R2,none,none,none,R1.txt
-R2,none,none,R3,none,none,none,R2.txt
-R3,none,none,none,none,R2,none,R3.txt
