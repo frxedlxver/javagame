@@ -1,8 +1,5 @@
-source_code/.idea/*
 source_code/out/*
 **/META-INF/*
-releases/
 
 *.class
 *.bak
-*.iml
