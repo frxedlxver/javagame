@@ -151,11 +151,11 @@ public class Game implements Serializable {
     }
 
     private void parseInputCombatState(ArrayList<Integer> input) {
-        // unfinished
+        // todo: unfinished
     }
 
     private void parseInputInventoryState (ArrayList<Integer> input) {
-        // unfinished
+        // todo: unfinished
     }
 
     private void take (ArrayList<Integer> commandIds) {

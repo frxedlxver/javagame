@@ -1,7 +1,5 @@
 package item;
 
-import item.Item;
-
 public class ItemEquipment extends Item {
 
     protected double weight;

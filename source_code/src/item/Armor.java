@@ -1,7 +1,5 @@
 package item;
 
-import item.ItemEquipment;
-
 import java.util.ArrayList;
 
 public class Armor extends ItemEquipment {

@@ -1,10 +1,5 @@
 package item;
 
-import item.Item;
-import item.Armament;
-import item.Armor;
-import item.Consumable;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 

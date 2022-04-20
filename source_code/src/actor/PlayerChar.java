@@ -1,9 +1,6 @@
 package actor;
 
-import item.Inventory;
-import item.Armament;
-import item.Armor;
-import item.Item;
+import item.*;
 
 import java.io.Serializable;
 
@@ -20,9 +17,9 @@ public class PlayerChar extends Actor implements Serializable {
 
     private final Inventory inventory;
 
-    private Armor eqArmor;
-    private Armament eqWeaponLeft;
-    private Armament eqWeaponRight;
+    private ItemEquipment eqArmor;
+    private ItemEquipment eqWeaponLeft;
+    private ItemEquipment eqWeaponRight;
 
     private String curLocationId;
 
@@ -54,44 +51,68 @@ public class PlayerChar extends Actor implements Serializable {
 
     // equipment management
     public void equipLeft(Armament weapon) {
-        if (eqWeaponLeft != null) {
-            unequipLeft();
-        }
-        this.eqWeaponLeft = weapon;
-        this.eqWeaponLeft.setEquipped();
+        equip(0, weapon);
     }
 
     public void equipRight(Armament weapon) {
-        if (eqWeaponRight != null) {
-            unequipRight();
-        }
-        this.eqWeaponRight = weapon;
-        this.eqWeaponRight.setEquipped();
+        equip(1, weapon);
     }
 
     public void equipArmor(Armor armor) {
-        if (eqArmor != null) {
-            unequipArmor();
+        equip(2, armor);
+    }
+
+    private void equip(int slot, ItemEquipment toEquip) {
+
+        // slot: 1 = left weapon; 2 = right weapon; 3 = armor.
+        ItemEquipment slotToUpdate = switch (slot) {
+            case 0 -> this.eqWeaponLeft;
+            case 1 -> this.eqWeaponRight;
+            case 2 -> this.eqArmor;
+            default -> null;
+        };
+
+        // if something is already equipped
+        if (slotToUpdate != null) {
+            slotToUpdate.setUnequipped();
         }
-        this.eqArmor = armor;
-        this.eqArmor.setEquipped();
+
+        slotToUpdate = toEquip;
+
+        if (toEquip != null) {
+            slotToUpdate.setEquipped();
+            inventory.removeEquipment(toEquip);
+        }
+
+        this.updateEquipWeight();
+    }
+
+    private void updateEquipWeight() {
+        this.curEquipWeight = eqWeaponLeft.getWeight() + eqWeaponRight.getWeight() + eqArmor.getWeight();
+    }
+
+    private void unequip(int slot) {
+        equip(3, null);
     }
 
     public void unequipLeft() {
         this.eqWeaponLeft.setUnequipped();
         this.inventory.addItem(eqWeaponLeft);
         this.eqWeaponLeft = null;
+        this.updateEquipWeight();
     }
 
     public void unequipRight() {
         this.eqWeaponRight.setUnequipped();
         this.inventory.addItem(eqWeaponRight);
         this.eqWeaponRight = null;
+        this.updateEquipWeight();
     }
 
     public void unequipArmor() {
         this.eqArmor.setUnequipped();
         this.inventory.addItem(eqArmor);
+        this.updateEquipWeight();
     }
 
 
