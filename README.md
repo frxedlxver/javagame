@@ -1,5 +1,3 @@
-# DEVELOP BRANCH
-
 # README
 
 ./source contains uncompiled source code    
